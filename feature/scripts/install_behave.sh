@@ -22,10 +22,13 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 source venv/bin/activate
 
 pip install behave
+pip install nose
+pip install google
 pip install grpcio-tools
 pip install "pysha3==1.0b1"
 pip install b3j0f.aop
 pip install jinja2
+pip install protobuf
 pip install "pyopenssl==17.2.0"
 pip install ecdsa
 pip install python-slugify
