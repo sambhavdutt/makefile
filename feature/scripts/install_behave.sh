@@ -10,6 +10,16 @@
 # This script is used on Debian based linux distros.
 # (i.e., linux that supports the apt packaging manager.)
 #
+# Create virtual Environment to test behave tests
+
+git submodule update --init --recursive
+
+# Create virtual Environment to test behave tests
+
+virtualenv -p /usr/bin/python2.7 venv
+export PS1="test"
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+source venv/bin/activate
 
 # Update system
 apt-get update -qq
@@ -54,3 +64,9 @@ apt-get install --yes tcl tclx tcllib
 
 # Install NPM for the SDK
 apt-get install --yes npm
+
+# Execute behave smoke tests
+cd feature
+behave --junit --junit-directory . -t smoke
+cd -
+deactivate
