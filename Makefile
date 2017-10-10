@@ -14,8 +14,8 @@
 all: ci-smoke fabric-ca pip-install
 FABRIC = https://gerrit.hyperledger.org/r/fabric
 FABRIC_CA = https://gerrit.hyperledger.org/r/fabric-ca
-FABRIC_WORKING_DIR = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test/fabric
-CA_WORKING_DIR = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test/fabric-ca
+FABRIC_WORKING_DIR = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test
+#CA_WORKING_DIR = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test/fabric-ca
 PIP_CONFIG_PATH = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test/feature/scripts/install_behave.sh
 
 
@@ -32,7 +32,7 @@ ca:
 	@echo "===========> Installing Binaries===================================="
 	@echo "############################################################################"
 	@git clone $(FABRIC_CA)
-	@make docker -C $(CA_WORKING_DIR)
+	@make docker -C $(FABRIC_WORKING_DIR)
 
 .PHONY: pip-install
 pip-install:
