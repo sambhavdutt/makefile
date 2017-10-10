@@ -21,16 +21,20 @@ PIP_CONFIG_PATH = ${WORKSPACE}/gopath/src/github.com/hyperledger/fabric-test/fea
 
 ci-smoke: fabric ca pip-install
 
+.PHONY: fabric
 fabric:
 	@echo "==========> Clone Fabric repository & Build Docker images <========="
 	@git clone $(FABRIC)
 	@make docker -C $(FABRIC_WORKING_DIR)
+
+.PHONY: ca
 ca:
 	@echo "===========> Installing Binaries===================================="
 	@echo "############################################################################"
 	@git clone $(FABRIC_CA)
 	@make docker -C $(CA_WORKING_DIR)
-	
+
+.PHONY: pip-install
 pip-install:
 	@echo "=====================Installing Dependencies================================"
 	@echo "############################################################################"
