@@ -31,7 +31,7 @@ fabric:
 ca:
 	@echo "===========> Installing Binaries===================================="
 	@echo "############################################################################"
-	@git clone $(FABRIC_CA)
+	@git clone $(FABRIC_CA) $(FABRIC_WORKING_DIR)/fabric-ca
 	@make docker -C $(FABRIC_WORKING_DIR)/fabric-ca
 
 .PHONY: pip-install
