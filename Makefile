@@ -24,7 +24,7 @@ ci-smoke: fabric ca pip-install
 .PHONY: fabric
 fabric:
 	@echo "==========> Clone Fabric repository & Build Docker images <========="
-	@git clone $(FABRIC) $FABRIC_WORKING_DIR/fabric
+	@git clone $(FABRIC) $(FABRIC_WORKING_DIR)/fabric
 	@make docker -C $(FABRIC_WORKING_DIR)/fabric
 
 .PHONY: ca
