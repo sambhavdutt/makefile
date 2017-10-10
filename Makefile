@@ -25,14 +25,14 @@ ci-smoke: fabric ca pip-install
 fabric:
 	@echo "==========> Clone Fabric repository & Build Docker images <========="
 	@git clone $(FABRIC)
-	@make docker -C $(FABRIC_WORKING_DIR)
+	@make docker -C $(FABRIC_WORKING_DIR)/fabric
 
 .PHONY: ca
 ca:
 	@echo "===========> Installing Binaries===================================="
 	@echo "############################################################################"
 	@git clone $(FABRIC_CA)
-	@make docker -C $(FABRIC_WORKING_DIR)
+	@make docker -C $(FABRIC_WORKING_DIR)/fabric-ca
 
 .PHONY: pip-install
 pip-install:
